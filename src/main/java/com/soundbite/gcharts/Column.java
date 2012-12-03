@@ -1,6 +1,6 @@
 package com.soundbite.gcharts;
 
-import org.testng.util.Strings;
+import com.google.common.base.Strings;
 
 /**
  * A DataTable column.
