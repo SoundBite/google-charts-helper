@@ -3,11 +3,12 @@
   <groupId>com.soundbite</groupId>
   <artifactId>google-charts-helper</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>Google Charts Helper</name>
 
   <scm>
     <connection>scm:git:ssh://git@github.com/bramp/google-charts-helper.git</connection>
+    <tag>google-charts-helper-0.0.1</tag>
   </scm>
 
   <properties>
