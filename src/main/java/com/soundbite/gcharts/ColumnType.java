@@ -1,12 +1,13 @@
 package com.soundbite.gcharts;
 
 public enum ColumnType {
-	STRING("string"),
+        STRING("string"),
 	NUMBER("number"),
-	BOOLEAN("boolean"),
-	DATE("date"),
-	DATE_TIME("datetime"),
-	TIME_OF_DAY("timeofday");
+        DATE("date");
+        // TODO
+        //	BOOLEAN("boolean"),
+        //	DATE_TIME("datetime"),
+        //	TIME_OF_DAY("timeofday");
 	
 	private final String string_value;
 	
