@@ -65,7 +65,9 @@ public class LiteralBuilder {
 			for (Cell cell : row.getCells()) {
 				sb.append("{v: "+cell.literalValue()+"},");
 			}
-			sb.deleteCharAt(sb.lastIndexOf(","));
+                        if (!row.getCells().isEmpty())
+                            sb.deleteCharAt(sb.lastIndexOf(","));
+
 			sb.append("]},");
 			
 		}
