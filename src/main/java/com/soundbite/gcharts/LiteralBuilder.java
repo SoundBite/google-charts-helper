@@ -53,7 +53,8 @@ public class LiteralBuilder {
 			
 			sb.append("},");
 		}
-		sb.deleteCharAt(sb.lastIndexOf(","));
+                if (!columns.isEmpty())
+                    sb.deleteCharAt(sb.lastIndexOf(","));
 		
 		sb.append("], ");
 		
@@ -68,7 +69,9 @@ public class LiteralBuilder {
 			sb.append("]},");
 			
 		}
-		sb.deleteCharAt(sb.lastIndexOf(","));
+                if (!rows.isEmpty())
+                    sb.deleteCharAt(sb.lastIndexOf(","));
+
 		sb.append("]");
 		
 		sb.append("}");
