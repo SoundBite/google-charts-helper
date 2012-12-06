@@ -1,5 +1,7 @@
 package com.soundbite.gcharts;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 class StringCell extends Cell {
 
 	private final String value;
@@ -10,7 +12,7 @@ class StringCell extends Cell {
 
 	@Override
 	String literalValue() {
-		return "'"+value+"'";
+		return "'"+StringEscapeUtils.escapeJavaScript(value)+"'";
 	}
 
 }

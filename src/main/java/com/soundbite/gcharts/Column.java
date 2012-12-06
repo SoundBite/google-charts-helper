@@ -1,5 +1,7 @@
 package com.soundbite.gcharts;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import com.google.common.base.Strings;
 
 /**
@@ -18,7 +20,7 @@ class Column {
 	
 	public Column(ColumnType type, String label) {
 		this.type = type;
-		this.label = label;
+		this.label = StringEscapeUtils.escapeJavaScript(label);
 	}
 
 	public ColumnType getType() {
