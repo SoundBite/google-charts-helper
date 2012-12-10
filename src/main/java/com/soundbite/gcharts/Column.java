@@ -20,15 +20,19 @@ class Column {
 	
 	public Column(ColumnType type, String label) {
 		this.type = type;
-		this.label = StringEscapeUtils.escapeJavaScript(label);
+		this.label = label;
 	}
 
 	public ColumnType getType() {
 		return type;
 	}
 
+	/**
+	 * Javascript-escaped
+	 * @return
+	 */
 	public String getLabel() {
-		return label;
+		return StringEscapeUtils.escapeJavaScript(label);
 	}
 
 	public boolean hasLabel() {
