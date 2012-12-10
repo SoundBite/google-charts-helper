@@ -32,5 +32,10 @@ public class TestLiteralBuilder {
 		b2.addRow(Cell.of("asdf"), Cell.of(3));
 		b2.addRow(Cell.of("qwer"), Cell.of(5));
 		System.out.println(b2.buildDataLiteral());
+
+                System.out.println("No rows example");
+                LiteralBuilder b3 = new LiteralBuilder();
+                b3.addColumn(ColumnType.STRING,"stringcol").addColumn(ColumnType.NUMBER, "numberCol");
+                System.out.println(b3.buildDataLiteral());
 	}
 }
