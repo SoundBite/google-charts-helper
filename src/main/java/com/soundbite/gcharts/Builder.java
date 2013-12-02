@@ -12,7 +12,7 @@ import java.io.Writer;
 import java.util.Arrays;
 import java.util.List;
 
-public class LiteralBuilder {
+public class Builder {
 
 	private final static Joiner commaJoiner = Joiner.on(",").skipNulls();
 
@@ -59,7 +59,7 @@ public class LiteralBuilder {
 	 * @param type The data type of the values of the column.
 	 * @return
 	 */
-	public LiteralBuilder addColumn(ColumnType type) {
+	public Builder addColumn(ColumnType type) {
 		columns.add(new Column(type));
 		return this;
 	}
@@ -70,12 +70,12 @@ public class LiteralBuilder {
 	 * @param label A string with the label of the column. The column label is typically displayed as part of the visualization, for example as a column header in a table, or as a legend label in a pie chart. If no value is specified, an empty string is assigned.
 	 * @return
 	 */
-	public LiteralBuilder addColumn(ColumnType type, String label) {
+	public Builder addColumn(ColumnType type, String label) {
 		columns.add(new Column(type, label));
 		return this;
 	}
 
-	public LiteralBuilder addRow(Cell...cells ) {
+	public Builder addRow(Cell...cells ) {
 		rows.add(new Row(Arrays.asList(cells)));
 		return this;
 	}
@@ -85,7 +85,7 @@ public class LiteralBuilder {
 	 * @return
 	 * @throws IOException 
 	 */
-	public String buildDataLiteral() throws IOException {
+	public String build() throws IOException {
 		StringWriter writer = new StringWriter();
 		build(writer);
 		return writer.toString();
