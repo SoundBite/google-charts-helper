@@ -36,11 +36,11 @@ public class LiteralBuilder {
             StringBuilder sb = new StringBuilder();
             sb.append("{c:[");
 
-            sb.append(commaJoiner.join(
+            commaJoiner.appendTo(sb,
                     FluentIterable.from(row.getCells())
                             .filter(Predicates.notNull())
                             .transform(cellToStringFN)
-            ));
+            );
 
             sb.append("]}");
             return sb.toString();
@@ -83,28 +83,30 @@ public class LiteralBuilder {
 	/**
 	 * Builds the data js literal.
 	 * @return
+	 * @throws IOException 
 	 */
-	public String buildDataLiteral() {
-		StringBuilder sb = new StringBuilder();
+	public String buildDataLiteral() throws IOException {
+		StringWriter writer = new StringWriter();
+		build(writer);
+		return writer.toString();
+	}
 
+	public void build(Writer out) throws IOException {
 		// column definitions
-		sb.append("{cols:[");
+		out.append("{cols:[");
 
-        sb.append(commaJoiner.join(
-                FluentIterable.from(columns)
-                        .filter(Predicates.notNull())
-                        .transform(columnToStringFn)
-        ));
+		commaJoiner.appendTo(out,
+			FluentIterable.from(columns)
+				.transform(columnToStringFn)
+        );
 
-		sb.append("], rows:[");
+		out.append("], rows:[");
 
-        sb.append(commaJoiner.join(
-                FluentIterable.from(rows)
-                        .filter(Predicates.notNull())
-                        .transform(rowToStringFn)
-        ));
+		commaJoiner.appendTo(out,
+			FluentIterable.from(rows)
+				.transform(rowToStringFn)
+        );
 
-		sb.append("]}");
-		return sb.toString();
+		out.append("]}");
 	}
 }
