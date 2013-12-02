@@ -6,16 +6,20 @@ import com.google.common.base.Predicates;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Lists;
 
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.List;
 
 public class LiteralBuilder {
 
-	private List<Column> columns = Lists.newLinkedList();
-	private List<Row> rows = Lists.newLinkedList();
-    private Joiner commaJoiner = Joiner.on(",").skipNulls();
+	private final static Joiner commaJoiner = Joiner.on(",").skipNulls();
 
-    private Function<Column, String> columnToStringFn = new Function<Column, String>() {
+	private final List<Column> columns = Lists.newLinkedList();
+	private final List<Row> rows = Lists.newLinkedList();
+
+    private final static Function<Column, String> columnToStringFn = new Function<Column, String>() {
         @Override
         public String apply(Column column) {
             String col = "{type: '"+column.getType()+"'";
@@ -26,7 +30,7 @@ public class LiteralBuilder {
         }
     };
 
-    private Function<Row, String> rowToStringFn = new Function<Row, String>() {
+    private final static Function<Row, String> rowToStringFn = new Function<Row, String>() {
         @Override
         public String apply(Row row) {
             StringBuilder sb = new StringBuilder();
@@ -43,7 +47,7 @@ public class LiteralBuilder {
         }
     };
 
-    private Function<Cell, String> cellToStringFN = new Function<Cell, String>() {
+    private final static Function<Cell, String> cellToStringFN = new Function<Cell, String>() {
         @Override
         public String apply(Cell cell) {
             return "{v: "+cell.literalValue()+"}";
