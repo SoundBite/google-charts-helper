@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import com.soundbite.gcharts.Cell;
 import com.soundbite.gcharts.ColumnType;
-import com.soundbite.gcharts.LiteralBuilder;
+import com.soundbite.gcharts.Builder;
 
 public class TestLiteralBuilder {
 
@@ -18,24 +18,24 @@ public class TestLiteralBuilder {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, -1);
 		
-		LiteralBuilder builder = new LiteralBuilder().addColumn(ColumnType.DATE, "my label").addColumn(ColumnType.NUMBER, "value"); 
-		Assert.assertNotNull(builder.buildDataLiteral());
+		Builder builder = new Builder().addColumn(ColumnType.DATE, "my label").addColumn(ColumnType.NUMBER, "value"); 
+		Assert.assertNotNull(builder.build());
 		
 		builder.addRow(Cell.of(new Date()), Cell.of(4))
 			.addRow(Cell.of(cal.getTime()), Cell.of(2));
 		
-		System.out.println(builder.buildDataLiteral());
+		System.out.println(builder.build());
 		
 		
-		LiteralBuilder b2 = new LiteralBuilder();
+		Builder b2 = new Builder();
 		b2.addColumn(ColumnType.STRING).addColumn(ColumnType.NUMBER);
 		b2.addRow(Cell.of("asdf"), Cell.of(3));
 		b2.addRow(Cell.of("qwer"), Cell.of(5));
-		System.out.println(b2.buildDataLiteral());
+		System.out.println(b2.build());
 
                 System.out.println("No rows example");
-                LiteralBuilder b3 = new LiteralBuilder();
+                Builder b3 = new Builder();
                 b3.addColumn(ColumnType.STRING,"stringcol").addColumn(ColumnType.NUMBER, "numberCol");
-                System.out.println(b3.buildDataLiteral());
+                System.out.println(b3.build());
 	}
 }
