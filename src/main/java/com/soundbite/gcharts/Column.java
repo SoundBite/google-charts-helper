@@ -9,7 +9,7 @@ import com.google.common.base.Strings;
  * @author austin
  *
  */
-class Column {
+public class Column {
 	private final ColumnType type;
 	private final String label;
 	
@@ -35,9 +35,11 @@ class Column {
 		return StringEscapeUtils.escapeJavaScript(label);
 	}
 
+	public String getRawLabel() {
+		return label;
+	}
+
 	public boolean hasLabel() {
 		return !Strings.isNullOrEmpty(label);
 	}
-
-	
 }
