@@ -30,11 +30,17 @@
 			<email>achamberlin@soundbite.com</email>
 			<name>Austin Chamberlin</name>
 		</developer>
+		<developer>
+			<id>bramp</id>
+			<email>andrew.brampton@genesyslab.com</email>
+			<name>Andrew Brampton</name>
+		</developer>
 	</developers>
+
 	<distributionManagement>
 		<repository>
-			<id>us-2ergo-maven</id>
-			<url>scp://maven.us.2ergo.com/proteus/repository/maven2</url>
+			<id>soundbite-maven</id>
+			<url>https://maven.dev.soundbite.com/content/repositories/soundbite-maven/</url>
 		</repository>
 	</distributionManagement>
 
