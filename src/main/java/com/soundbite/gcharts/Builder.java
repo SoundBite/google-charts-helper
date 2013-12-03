@@ -109,4 +109,8 @@ public class Builder {
 
 		out.append("]}");
 	}
+
+	public Chart buildChart() {
+		return new Chart(columns, rows);
+	}
 }
