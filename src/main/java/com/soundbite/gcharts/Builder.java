@@ -47,9 +47,9 @@ public class Builder {
         }
     };
 
-    private final static Function<Cell, String> cellToStringFN = new Function<Cell, String>() {
+    private final static Function<Cell<?>, String> cellToStringFN = new Function<Cell<?>, String>() {
         @Override
-        public String apply(Cell cell) {
+        public String apply(Cell<?> cell) {
             return "{v: "+cell.literalValue()+"}";
         }
     };
@@ -75,7 +75,7 @@ public class Builder {
 		return this;
 	}
 
-	public Builder addRow(Cell...cells ) {
+	public Builder addRow(Cell<?>...cells ) {
 		rows.add(new Row(Arrays.asList(cells)));
 		return this;
 	}
