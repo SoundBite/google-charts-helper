@@ -7,19 +7,20 @@ import java.util.Date;
  * @author austin
  *
  */
-public abstract class Cell {
+public abstract class Cell<T> {
 	
-	public static Cell of(String value) {
+	public static Cell<String> of(String value) {
 		return new StringCell(value);
 	}
 	
-	public static Cell of(Date date) {
+	public static Cell<Date> of(Date date) {
 		return new DateCell(date);
 	}
 	
-	public static Cell of(Number num) {
+	public static Cell<Number> of(Number num) {
 		return new NumberCell(num);
 	}
 
 	abstract String literalValue();
+	abstract T rawValue();
 }
