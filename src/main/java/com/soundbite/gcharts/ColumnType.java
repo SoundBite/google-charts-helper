@@ -15,6 +15,10 @@ public enum ColumnType {
 		string_value = s;
 	}
 
+	public String getValue() {
+		return string_value;
+	}
+
 	@Override
 	public String toString() {
 		return string_value;
