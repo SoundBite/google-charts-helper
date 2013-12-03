@@ -3,7 +3,7 @@
 	<groupId>com.soundbite</groupId>
 	<artifactId>google-charts-helper</artifactId>
 	<packaging>jar</packaging>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>Google Charts Helper</name>
         <description>Java library to assist in generating Google charts JavaScript literals</description>
         <url>https://github.com/bramp/google-charts-helper</url>
@@ -16,7 +16,7 @@
 	<scm>
 		<connection>scm:git:ssh://git@github.com/bramp/google-charts-helper.git</connection>
 		<url>scm:git:ssh://git@github.com/bramp/google-charts-helper.git</url>
-		<tag>HEAD</tag>
+		<tag>google-charts-helper-0.1</tag>
 	</scm>
 
 	<properties>
